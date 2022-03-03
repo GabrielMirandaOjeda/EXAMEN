@@ -13,12 +13,15 @@ public class Ejercicio3 {
  
     static ArrayList<String> Plataformas = new ArrayList();
     
-
-	private static void informacionVideojuegos(String original) {
+	/**
+	 * Pre: Recibe un string que contiene la ruta y el nombre de un fichero csv que contiene datos de ventas de videojuegos separados por comas
+	 * Post: Crea un arraylist de strings que contiene las diferentes consolas que hay en el fichero, y lo muestra por pantalla
+	 */
+	private static void informacionVideojuegos(String fixero) {
 		
-		File file = new File(original);
+		File file = new File(fixero);
 		String[] platform;
-		int cuenta=0;
+		int cuenta=0;//Esta variable se utiliza para no introducir la cabecera del fichero de ventas en el arraylist
 		boolean igual = false;
 		
 		try {Scanner f = new Scanner(file);
@@ -31,14 +34,12 @@ public class Ejercicio3 {
 								igual = true;
 								break;
 							}
-						
-						if(igual==false) {
-							System.out.println("fail");
-							Plataformas.add(platform[2]);
-						}
-						igual=false;
+					}
+					if(igual==false) {
+						Plataformas.add(platform[2]);
 					}
 				}
+				igual=false;
 				cuenta++;
 			 }
 			 System.out.println(cuenta);
@@ -49,10 +50,14 @@ public class Ejercicio3 {
 			f.close();
 			
 		} catch(FileNotFoundException e) {
-			System.out.println("El fichero " + original + " no ha podido ser abierto.");
+			System.out.println("El fichero " + fixero + " no ha podido ser abierto.");
 		}
 	}
-	
+	/**
+	 * Pre: 
+	 * Post: Le pide al usuario la ruta de un fichero csv que contiene datos de ventas de videojuegos separados por comas , 
+	 * crea un arraylist de strings que contiene las diferentes consolas que hay en el fichero, y lo muestra por pantalla
+	 */
 	public static void main(String[] args) {
     	System.out.println("Escriba la ruta del fichero que contiene la lista a evaluar");
 		String fichero = sc.nextLine();
