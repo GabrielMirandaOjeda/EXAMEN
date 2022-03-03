@@ -2,9 +2,6 @@ package examen;
 
 import java.util.Scanner;
 
-import pruebas.Accidente;
-import pruebas.Tupla;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -30,21 +27,23 @@ public class Ejercicio3 {
 				if (cuenta!=0) {
 					 platform = linea.split(",");
 					for(String s : Plataformas) {
-						for(String s2 : Plataformas) {
-							if(s.equalsIgnoreCase(s2)) {
+							if(platform[2].equalsIgnoreCase(s)) {
 								igual = true;
 								break;
 							}
-						}
+						
 						if(igual==false) {
-							Plataformas.add();
+							System.out.println("fail");
+							Plataformas.add(platform[2]);
 						}
+						igual=false;
 					}
-					
-				 
-				  Plataformas.add(platform[2]);
 				}
 				cuenta++;
+			 }
+			 System.out.println(cuenta);
+			 for(String x : Plataformas) {
+				 System.out.println(x);
 			 }
 
 			f.close();
