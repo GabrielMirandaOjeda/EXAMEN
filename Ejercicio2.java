@@ -16,7 +16,7 @@ public class Ejercicio2 {
 		}
 		return cuenta;
 	}
-	private static int accederFichero(String texto, int length) {
+	private static int palabrasMasLargasQue(String texto, int length) {
 		
 		File file = new File(texto);
 		int total=0;
@@ -41,7 +41,7 @@ public class Ejercicio2 {
 		String fichero = scan.nextLine();
 		System.out.println("Escriba la longitud de palabra que se va a usar para realizar la comparacion con las palabras del texto");
 		int longitud = scan.nextInt();
-		System.out.println("El numero de palabras de longitud superior a la introducida es: " +accederFichero(fichero, longitud));
+		System.out.println("El numero de palabras de longitud superior a la introducida es: " +palabrasMasLargasQue(fichero, longitud));
 
 	}
 }
